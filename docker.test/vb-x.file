@@ -1,0 +1,3 @@
+volumes:
+- ./config/aa.sh:/etc/nginx/aa.sh
+command: /bin/bash /etc/nginx/aa.sh
