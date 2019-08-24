@@ -1,11 +1,11 @@
-# docker HUB (...)
+ docker HUB (...)
 ---
 
 ...
 
 ---
-# Version: 0.0.1
-# Zabbix-Server-aa
+ Version: 0.0.1
+ Zabbix-Server-aa
 ---
    FROM ubuntu:16.04
         MAINTAINER aa.arenenko  <arsenenko@test.aa.com>
