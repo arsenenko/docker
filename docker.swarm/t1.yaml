@@ -1,0 +1,31 @@
+traefik:
+  image: traefik
+  command: --web --docker --docker.watch --docker.domain=localhost --logLevel=DEBUG --entryPoints="Name:http Address::80"
+  ports:
+    - "80:80"
+    - "8080:8080"
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /dev/null:/traefik.toml
+
+
+nginx1:
+  image: nginx
+
+
+  labels:
+    - "traefik.backend=nginx1"
+    - "traefik.frontend.rule=PathStrip: /"
+    - "traefik.port=80"
+    - "traefix.port=443"
+    - "traefik.frontend.entryPoints=http"
+
+
+nginx2:
+  image: nginx
+  labels:
+    - "traefik.backend=nginx2"
+    - "traefik.frontend.rule=Host:172.17.0.6:999/"
+    - "traefik.port=80"
+    - "traefix.port=443"
+    - "traefik.frontend.entryPoints=http"
