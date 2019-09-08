@@ -21,4 +21,4 @@ services:
         - traefik.port=3000
     networks:
       - traefik-net
-      - db-net
+      - start-net
