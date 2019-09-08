@@ -24,3 +24,28 @@ nginx:
 
 
 
+nginx2:
+  image: nginx:latest
+  ports:
+    - "86:86"
+  volumes:
+            #- ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+    - ./www:/var/www/html
+    - ./logs:/var/log/nginx
+  labels:
+    - traefik.backend=web
+    - traefik.frontend.rule=Host:aa.loc
+    - traefik.port=80
+
+nginx3:
+  image: nginx:latest
+  ports:
+    - "87:87"
+  volumes:
+            #- ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+    - ./www:/var/www/html
+    - ./logs:/var/log/nginx
+  labels:
+    - traefik.backend=web
+    - traefik.frontend.rule=Host:aa.loc
+    - traefik.port=80
