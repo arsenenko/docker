@@ -4,10 +4,10 @@ services:
         image: nginx:latest
         ports:
             - "80:80"
-        volumes:
+        #volumes:
             #- ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
-            - ./www:/var/www/html
-            - ./logs:/var/log/ngin
+            #- ./www:/var/www/html
+            #- ./logs:/var/log/ngin
     deploy:
       replicas: 2
       restart_policy:
